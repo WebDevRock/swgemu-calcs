@@ -1,6 +1,6 @@
-# test-project
+# Swgemu - Calculator
 
-> A Vue.js project
+> A simple tool to show you the stats you'd expect to get out of a buff pack craft, based on the quality of resources you put in.
 
 ## Build Setup
 
@@ -24,4 +24,4 @@ npm run unit
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+See it in action at [guide](https://codesandbox.io/s/qq625kkwq).

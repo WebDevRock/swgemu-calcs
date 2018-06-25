@@ -3,10 +3,10 @@
       <form class="form1" action="">
         <label class="subtitle"><h3>Buff Crafting Calculator</h3></label>
         <label for="asds">Component Power</label>
-        <label for="asds">ASDS</label>
+        <label for="asds" title="Advanced ">ASDS</label>
         <input id="asds" v-model.number="asds" type="number">
 
-        <label for="acrm">ACMRDM</label>
+        <label for="acrm">ACRM</label>
         <input id="acrm" type="number" v-model.number="acrm">
 
         <label for="abec">ABEC</label>
@@ -27,14 +27,9 @@
         <input id="rvpe" type="number"  v-model.number="rvpe">
         <label for="rvdr">DR</label>
         <input id="rvdr" class="last" type="number"  v-model.number="rvdr">
+        <label class="subtitle"><p><strong>Power:</strong> {{ totalPower }} </p>
+        <p><strong>Duration:</strong> {{ totalDuration }} </p></label>
         </form>
-
-        <p>Power: {{ totalPower }} </p>
-        <p>Duration: {{ totalDuration }} </p>
-        <p>
-        
-        </p>
-
      </div>   
 </template>
 
@@ -56,12 +51,10 @@ export default {
     },
     computed: {
       totalPower() {
-        // totalPower = ((avoq + avpe + reoq)/3)*0.76 + 40 + components;
-        // totalDuration = ((0.4*avoq)+(0.6*avdr)+(0.4*reoq)+(0.6*redr))*6.5 + 1200;
-        return ((this.avoq + this.avpe + this.rvoq)/3)*0.76 + 40 + (this.asds + this.acrm + this.abec);
+        return Math.round(((this.avoq + this.avpe + this.rvoq)/3)*0.76 + 40 + (this.asds + this.acrm + this.abec));
       },
       totalDuration() {
-        return ((0.4*this.avoq)+(0.6*this.avdr)+(0.4*this.rvoq)+(0.6*this.rvdr))*6.5 + 1200;
+        return Math.round(((0.4*this.avoq)+(0.6*this.avdr)+(0.4*this.rvoq)+(0.6*this.rvdr))*6.5 + 1200);
       }
   }
 
@@ -69,24 +62,45 @@ export default {
 </script>
 
 <style>
+  * {
+    color: #c8f4f3;
+  }
+  body, input {
+    background-color: #003344;
+    
+  }
+  input {
+    width: 50px;
+    padding: 3px;
+    margin: 0;
+    height: 20px;
+    border: 1px solid #006b87;
+  }
   img {
     height: 20px;  
   }
   form {
-      background-color: #eee;
-      border: 1px solid #ccc;
+      width: 780px;   
+      background-color: #589bac;
+      border: 1px solid #05fffe;
       display: grid;
-      grid-gap: 5px;
+      grid-gap: 10px;
       grid-template-columns: 1fr 1fr 3fr 1fr 3fr 1fr 3fr;
+      padding: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; /* future proofing */
+      -khtml-border-radius: 5px; /* for old Konqueror browsers */
   }
 
   .subtitle {
+    background-color: #006b87;
     grid-column: 1 / 8;
-    background-color: #ccc;
-              
-  }
-  .last{
-    //grid-column: 6 / 8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; /* future proofing */
+    -khtml-border-radius: 5px; /* for old Konqueror browsers */
+                 
   }
   
 </style>
